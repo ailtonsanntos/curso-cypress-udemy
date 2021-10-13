@@ -20,5 +20,4 @@ jobs:
         node-version: 14.x
         
     - run: npm install
-    - run: npm run cy:run
-    
+    - run: npm test
