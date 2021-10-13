@@ -1,0 +1,24 @@
+name: Teste
+# Gatilho programado ou acionado por eventos
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  build:
+    # Maquina ou ambiente que vai executar os testes.
+    runs-on: ubuntu-latest
+
+    # Passos que precisamos para prepara o ambiente para executar os testes
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14.x
+        
+    - run: npm install
+    - run: npm run cy:run
+    
